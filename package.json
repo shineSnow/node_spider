@@ -1,0 +1,34 @@
+{
+  "name": "node_spider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shineSnow/node_spider.git"
+  },
+  "keywords": [
+    "node",
+    "spider"
+  ],
+  "author": "zqy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shineSnow/node_spider/issues"
+  },
+  "homepage": "https://github.com/shineSnow/node_spider#readme",
+  "devDependencies": {
+    "yarn": "^1.3.2"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "node-dev": "^3.1.3",
+    "path": "^0.12.7",
+    "request": "^2.83.0"
+  }
+}
