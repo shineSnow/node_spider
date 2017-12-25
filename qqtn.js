@@ -57,9 +57,17 @@ var pageImgUrl = function(page_url) {
                 img_arr.push(img_src)
             })
             // console.log(img_arr)
-            downLoadImg(img_src,function() {
-                console.log(file_name + '/下载完成')
+            async.mapLimit(img_arr,3,function(img_arr_item,callback) {
+                downLoadImg(img_arr_item,function() {
+                })
+            }, function(err, res) {
+                if(err) {
+                    console.log(err)
+                }else {
+                    console.log('全部检索完毕')
+                }
             })
+
         }
     })
 }
@@ -97,7 +105,7 @@ function pageHtml(url) {
 
 //下载图片
 function downLoadImg(url, callback) {
-  var file_name = FileName(img_src) 
+  var file_name = FileName(url) 
   var stream = fs.createWriteStream("images/" + file_name);
   request(url)
     .on("error", function() {
@@ -105,6 +113,7 @@ function downLoadImg(url, callback) {
     })
     .pipe(stream)
     .on("close", callback);
+    console.log(file_name + '/下载完成')
 }
 
 //格式化图片名称
